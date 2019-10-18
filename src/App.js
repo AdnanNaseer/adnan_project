@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginView from './components/LoginView';
-import ExampleProtectedView from './components/ExampleProtectedView';
+import ProtectedView from './components/ProtectedView';
 import ProtectedRoute from './components/ProtectedRoute';
 import Auth from './components/Auth';
 import axios from 'axios';
-import constants from './constants.json';
 
 export default class App extends Component {
   constructor(props)
@@ -28,7 +27,7 @@ export default class App extends Component {
 
   /* This function illustrates how some protected API could be accessed */
   loadProtectedData = () => {
-    axios.get(constants.baseAddress + '/hello-protected', Auth.getAxiosAuth()).then(results => {
+    axios.get('http://localhost:4000/hello-protected', Auth.getAxiosAuth()).then(results => {
       this.setState({ someData: results.data });
     })
   }
@@ -50,7 +49,7 @@ export default class App extends Component {
         } />
         <ProtectedRoute isAuthenticated={this.state.isAuthenticated} path="/example" exact render={
             (routeProps) =>
-              <ExampleProtectedView
+              <ProtectedView
                 loadProtectedData={ this.loadProtectedData }
                 someData={ this.state.someData }
                 />
