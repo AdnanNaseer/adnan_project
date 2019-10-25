@@ -8,7 +8,7 @@ let userInfo = {
 let myAuth = {
     authenticate: (username, password) => {      
       return new Promise((resolve, reject) => {
-        axios.get('http://localhost:4000/users/:id', 
+        axios.get('http://ec2-3-93-21-63.compute-1.amazonaws.com/users/:id', 
           {
               auth: {
               username: username,

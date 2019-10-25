@@ -27,7 +27,7 @@ export default class App extends Component {
 
   /* This function illustrates how some protected API could be accessed */
   loadProtectedData = () => {
-    axios.get('http://localhost:4000/hello-protected', Auth.getAxiosAuth()).then(results => {
+    axios.get('http://ec2-3-93-21-63.compute-1.amazonaws.com/hello-protected', Auth.getAxiosAuth()).then(results => {
       this.setState({ someData: results.data });
     })
   }

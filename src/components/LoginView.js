@@ -22,7 +22,7 @@ export default function LoginView(props) {
     <div>
       <h1>Login</h1>
       <div>
-       Please give your username and password to login
+      Use your UserName and Password to Login 
       </div>
 
       <form onSubmit={ login }>
